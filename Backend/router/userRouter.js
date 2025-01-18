@@ -5,6 +5,6 @@ let userRouter = Router();
 
 userRouter.get("", getalluser);
 userRouter.post("/signup", signup);
-userRouter.get("/login", login);
+userRouter.post("/login", login);
 
 export { userRouter };

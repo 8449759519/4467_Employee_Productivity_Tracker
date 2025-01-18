@@ -1,9 +1,9 @@
 async function handleLogin(event) {
-  event.preventDefault(); 
+  event.preventDefault();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  console.log(email)
-  console.log(password)
+  console.log(email);
+  console.log(password);
 
   try {
     const response = await fetch("http://localhost:5000/user/login", {
