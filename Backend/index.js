@@ -13,7 +13,7 @@ app.use("/user", userRouter);
 
 app.listen(5000, async () => {
   try {
-    // Connect to MongoDB
+    // Connect to MongosDB
     await connect(
       "mongodb+srv://ab422380:newPassword@cluster0.ckd1k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     );
