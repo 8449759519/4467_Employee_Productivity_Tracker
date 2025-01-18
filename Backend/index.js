@@ -2,6 +2,7 @@ import express from "express";
 import { connect } from "mongoose";
 import cors from "cors";
 import { userRouter } from "./router/userRouter.js";
+import { trackerRouter } from "./router/trakerRouter.js";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors({ origin: "*" }));
 
 // Route for user-related operations
 app.use("/user", userRouter);
+app.use("/traker", trackerRouter);
 
 // Start the server
 app.listen(5000, async () => {
