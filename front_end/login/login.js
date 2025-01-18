@@ -1,9 +1,10 @@
+let token = '';
+let userId = '';
+
 async function handleLogin(event) {
   event.preventDefault();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  console.log(email);
-  console.log(password);
 
   try {
     const response = await fetch("http://localhost:5000/user/login", {
@@ -16,8 +17,12 @@ async function handleLogin(event) {
 
     if (response.ok) {
       const data = await response.json();
-      if (data.success) {
+      token = data.token;
+      userId = data.userId;
+      if (token) {
         // Redirect to dashboard
+        localStorage.setItem("authToken", token);
+        localStorage.setItem("userId", userId);
         window.location.href = "/front_end/dashboard/dashboard.html";
       } else {
         alert(data.message || "Invalid login credentials");
@@ -30,3 +35,13 @@ async function handleLogin(event) {
     alert("An error occurred. Please try again.");
   }
 }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const storedToken = localStorage.getItem("authToken");
+//   if (storedToken) {
+//     token = storedToken;
+//     // Redirect to dashboard if already logged in
+//     window.location.href = "/front_end/dashboard/dashboard.html";
+//   }
+// });
+
