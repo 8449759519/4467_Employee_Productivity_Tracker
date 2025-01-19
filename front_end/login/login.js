@@ -1,5 +1,5 @@
-let token = '';
-let userId = '';
+let token = "";
+let userId = "";
 
 async function handleLogin(event) {
   event.preventDefault();
@@ -23,7 +23,7 @@ async function handleLogin(event) {
         // Redirect to dashboard
         localStorage.setItem("authToken", token);
         localStorage.setItem("userId", userId);
-        window.location.href = "/front_end/dashboard/dashboard.html";
+        window.location.href = "../dashboard/dashboard.html";
       } else {
         alert(data.message || "Invalid login credentials");
       }
@@ -44,4 +44,3 @@ async function handleLogin(event) {
 //     window.location.href = "/front_end/dashboard/dashboard.html";
 //   }
 // });
-
