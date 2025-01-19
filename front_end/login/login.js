@@ -23,7 +23,7 @@ async function handleLogin(event) {
         // Redirect to dashboard
         localStorage.setItem("authToken", token);
         localStorage.setItem("userId", userId);
-        window.location.href = "../dashboard/dashboard.html";
+        window.location.href = "/dashboard/dashboard.html";
       } else {
         alert(data.message || "Invalid login credentials");
       }
