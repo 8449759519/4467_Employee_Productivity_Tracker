@@ -4,6 +4,10 @@ document
     window.location.href = "/front_end/createTask/createTask.html";
   });
 
+document.getElementById("viewTask").addEventListener("click", function () {
+  window.location.href = "/front_end/viewTask/viewTask.html";
+});
+
 function handleLogout() {
   // Remove the token from localStorage
   localStorage.removeItem("authToken");
