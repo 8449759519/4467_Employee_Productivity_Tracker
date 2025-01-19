@@ -1,69 +1,143 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
-    margin: 0;
-    padding: 20px;
-  }
+  font-family: "Arial", sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(135deg, #6a11cb, #2575fc);
+}
 
-  h2 {
-    text-align: center;
-    color: #333;
-  }
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.form-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
 
-  label {
-    font-size: 16px;
-    color: #333;
-    display: block;
-    margin: 10px 0 5px;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  input[type="text"], textarea, select {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 16px 0;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
+label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
+}
 
-  input[type="text"]:focus, textarea:focus, select:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
-    outline: none;
-  }
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-  textarea {
-    resize: vertical;
-    height: 150px;
-  }
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+  outline: none;
+}
 
-  input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
+textarea {
+  resize: vertical;
+  height: 150px;
+}
 
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
+button {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s, transform 0.3s;
+}
 
-  select, input[type="text"], textarea {
-    box-sizing: border-box;
-  }
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+  transform: scale(1);
+}
+
+select,
+input[type="text"],
+textarea {
+  box-sizing: border-box;
+}
+
+/* Priority Dropdown Styling */
+#priority option[value="High"] {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+#priority option[value="Medium"] {
+  background-color: #ff9800; /* Orange */
+  color: white;
+}
+
+#priority option[value="Low"] {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem; /* Slightly above the form */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 30px; /* Set width */
+  height: 30px; /* Set height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  border-radius: 50%; /* Circular button */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #590aad; /* Background color on hover */
+  color: #ffffff; /* Text color on hover */
+  transform: translateX(-50%) scale(1.1); /* Slight enlargement on hover */
+}
+
+.close-btn:focus {
+  outline: none; /* Remove focus outline */
+}

@@ -10,6 +10,6 @@ const trackerRouter = Router();
 // Define the route with a descriptive path
 trackerRouter.get("", getall);
 trackerRouter.post("", createTask);
-trackerRouter.post("/:id", getByUserId);
+trackerRouter.get("/:id", getByUserId);
 
 export { trackerRouter };

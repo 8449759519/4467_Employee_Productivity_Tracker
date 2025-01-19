@@ -93,33 +93,32 @@ button:active {
   background-color: #003f7f;
 }
 
+/* Footer */
 footer {
   background-color: #dededf;
-  height: 150px;
-  padding: 20px 20px;
-  margin-top: 130px;
+  padding: 40px 20px;
   text-align: center;
+  margin-top: 130px;
 }
 
 .footer-container p {
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
-.footer-container > p {
-  padding-right: 60px;
-}
+
 .team-members {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribute space evenly */
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 0 40px;
 }
 
-.team-member:nth-child(2) {
-  padding-left: 40px;
-}
 .team-member {
   text-align: center;
   max-width: 250px;
+  margin-bottom: 20px;
+  flex: 1 1 30%; /* Allow flexible growth, ensure they take up equal width */
 }
 
 .team-member h3 {
@@ -134,30 +133,37 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .team-member > h3 {
-    font-size: 1rem;
-  }
-  .team-member > p {
-    font-size: 0.7rem;
-  }
   .footer-container > p {
     padding-left: 80px;
   }
+
+  .team-member > h3 {
+    font-size: 1rem;
+  }
+
+  .team-member > p {
+    font-size: 0.8rem;
+  }
+
   .container > h1 {
     font-size: 2rem;
   }
+
   .container button {
     padding: 10px 20px;
     font-size: 1rem;
   }
+
   footer {
     margin-top: 220px;
   }
 }
+
 @media (max-width: 600px) {
-  .team-member:nth-child(3) {
-    max-width: 100px;
+  .team-member {
+    max-width: 100%;
   }
+
   footer {
     margin-top: 180px;
     padding-bottom: 160px;

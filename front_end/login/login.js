@@ -36,11 +36,11 @@ async function handleLogin(event) {
   }
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const storedToken = localStorage.getItem("authToken");
-//   if (storedToken) {
-//     token = storedToken;
-//     // Redirect to dashboard if already logged in
-//     window.location.href = "/front_end/dashboard/dashboard.html";
-//   }
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  const storedToken = localStorage.getItem("authToken");
+  if (storedToken) {
+    token = storedToken;
+    // Redirect to dashboard if already logged in
+    window.location.href = "/front_end/dashboard/dashboard.html";
+  }
+});
