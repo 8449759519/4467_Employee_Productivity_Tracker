@@ -7,8 +7,6 @@ document
 function handleLogout() {
   // Remove the token from localStorage
   localStorage.removeItem("authToken");
-
-  // Redirect to login page
   window.location.href = "/front_end/login/index.html";
 }
 document.getElementById("logoutButton").addEventListener("click", handleLogout);
