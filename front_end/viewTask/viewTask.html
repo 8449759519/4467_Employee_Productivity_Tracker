@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List with Priority</title>
-  <link rel="stylesheet" href="viewTask.css">
+  <link rel="stylesheet" href="./viewTask.module.css">
 </head>
 <body>
   <header>
@@ -19,6 +19,62 @@
   <div class="todo-container" id="todoContainer">
     <!-- Tasks will be dynamically added here -->
   </div>
+  <script>
+    const apiUrl = "http://localhost:5000/traker/";
+
+    // Fetch data from API
+    async function fetchTodoItems() {
+      try {
+        const response = await fetch(apiUrl);
+        const { data } = await response.json();
+
+        // Call a function to render the fetched data
+        renderTodoItems(data);
+      } catch (error) {
+        console.error("Error fetching data from API:", error);
+      }
+    }
+
+    // Render tasks
+    function renderTodoItems(items) {
+      const todoContainer = document.getElementById("todoContainer");
+      todoContainer.innerHTML = ""; // Clear container
+
+      items.forEach(item => {
+        const todoItem = document.createElement("div");
+        todoItem.classList.add("todo-item");
+
+        // Assign priority class
+        if (item.priority.toLowerCase() === "high") {
+          todoItem.classList.add("high");
+        } else if (item.priority.toLowerCase() === "medium") {
+          todoItem.classList.add("medium");
+        } else {
+          todoItem.classList.add("low");
+        }
+
+        todoItem.innerHTML = `
+          <div>
+            <div class="todo-title">${item.title}</div>
+            <div class="todo-reference">Reference: ${item.reference}</div>
+            <div class="todo-description">${item.description}</div>
+          </div>
+          <div class="priority-indicator">
+            <span class="priority-label">${item.priority}</span>
+            <div class="priority-tube" style="background-color: ${
+              item.priority.toLowerCase() === "high" ? "red" : 
+              item.priority.toLowerCase() === "medium" ? "orange" : "green"
+            }"></div>
+          </div>
+        `;
+
+        todoContainer.appendChild(todoItem);
+      });
+    }
+
+    // Initialize
+    fetchTodoItems();
+  </script>
 </body>
 </html>
-<script src="viewTask.js"></script>
+
