@@ -27,7 +27,7 @@ const createTask = async (req, res) => {
     const result = await Tracker.create(task);
 
     res
-      .status(201)
+      .status(200)
       .json({ message: "Task created successfully.", data: result });
   } catch (error) {
     console.error("Error creating task:", error);
